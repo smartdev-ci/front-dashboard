@@ -82,7 +82,7 @@ export default {
         console.log(data);
         const token = data._id;
         localStorage.setItem("token", token);
-        this.$router.push("/dashboard");
+        this.$router.push("/widget");
       } catch (error) {
         console.error("Login failed:", error);
         if (error.message.includes("Unauthorized")) {

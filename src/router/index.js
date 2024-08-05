@@ -50,12 +50,15 @@ const router = createRouter({
 // Guard global to check authentication
 router.beforeEach((to, from, next) => {
   const isAuthenticated = !!localStorage.getItem("token");
-  if (to.name !== "login" && !isAuthenticated) {
-    next({ name: "login" }); // Redirect to login if not authenticated
-  } else if (to.name === "login" && isAuthenticated) {
-    next({ name: "widget" }); // Redirect to widget if already authenticated
+  if (to.name !== "login" && !isAuthenticated && to.name !== "register") {
+    next({ name: "login" });
+  } else if (
+    (to.name === "login" && isAuthenticated) ||
+    to.name === "register"
+  ) {
+    next({ name: "widget" });
   } else {
-    next(); // Proceed to route
+    next();
   }
 });
 

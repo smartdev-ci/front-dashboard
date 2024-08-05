@@ -12,7 +12,7 @@
         <li v-if="!isAuthenticated"><a href="register">Créer mon compte</a></li>
         <li v-if="isAuthenticated"><a @click="logout">Se déconnecter</a></li>
       </ul>
-      <h1><a href="/">Dashboard Service </a></h1>
+      <h1><a href="/widget">Dashboard Service </a></h1>
     </div>
   </nav>
   <router-view />
@@ -43,12 +43,17 @@ export default {
   },
   created() {
     this.checkAuthStatus();
+    // eslint-disable-next-line no-unused-vars
     const isAuthenticated = !!localStorage.getItem("token");
-    if (!isAuthenticated) {
-      this.$router.push({ name: "login" });
-    } else {
-      this.$router.push({ name: "widget" });
-    }
+    // if (
+    //   !isAuthenticated &&
+    //   this.$route.name !== "login" &&
+    //   this.$route.name !== "register"
+    // ) {
+    //   this.$router.push({ name: "login" });
+    // } else {
+    //   this.$router.push({ name: "widget" });
+    // }
   },
   mounted() {
     this.getClientIp();
