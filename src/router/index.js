@@ -49,7 +49,7 @@ const router = createRouter({
 
 // Guard global to check authentication
 router.beforeEach((to, from, next) => {
-  const isAuthenticated = !!localStorage.getItem("token"); // Check if token is in localStorage
+  const isAuthenticated = !!localStorage.getItem("token");
   if (to.name !== "login" && !isAuthenticated) {
     next({ name: "login" }); // Redirect to login if not authenticated
   } else if (to.name === "login" && isAuthenticated) {

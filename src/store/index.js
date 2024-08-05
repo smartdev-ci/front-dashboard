@@ -17,7 +17,9 @@ export default createStore({
   },
   actions: {
     async fetchUsers({ commit }) {
-      const response = await fetch("https://dashboard-fefr.onrender.com/users/");
+      const response = await fetch(
+        "https://dashboard-fefr.onrender.com/users/"
+      );
       const data = await response.json();
       console.log(data);
       commit("SETS_USER", data);
@@ -25,13 +27,16 @@ export default createStore({
 
     async createUser({ commit }, { userData }) {
       try {
-        const response = await fetch("https://dashboard-fefr.onrender.com/users/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(userData),
-        });
+        const response = await fetch(
+          "https://dashboard-fefr.onrender.com/users/",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(userData),
+          }
+        );
         if (!response.ok) {
           const errorData = await response.json();
           console.log(errorData.message);
