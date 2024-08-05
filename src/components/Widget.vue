@@ -42,7 +42,7 @@ export default {
       const userId = localStorage.getItem("token");
       try {
         const response = await fetch(
-          `http://localhost:3000/widget/active/${userId}/`
+          `https://dashboard-fefr.onrender.com/widget/active/${userId}/`
         );
 
         const text = await response.text();
@@ -82,7 +82,7 @@ export default {
     async deactivateWidget(widgetId) {
       const userId = localStorage.getItem("token");
       try {
-        await fetch(`http://localhost:3000/widget/deactivate`, {
+        await fetch(`https://dashboard-fefr.onrender.com/widget/deactivate`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

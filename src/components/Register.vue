@@ -86,7 +86,7 @@ export default {
 
     async register() {
       try {
-        await axios.post("http://localhost:3000/auth/register", {
+        await axios.post("https://dashboard-fefr.onrender.com/auth/register", {
           username: this.username,
           email: this.email,
           password: this.password,

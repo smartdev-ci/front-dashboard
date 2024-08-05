@@ -28,9 +28,12 @@ export default {
     console.log("Stored Access Token:", accessToken);
     if (accessToken) {
       try {
-        const response = await axios.get("http://localhost:3000/spotify/me", {
-          params: { access_token: accessToken },
-        });
+        const response = await axios.get(
+          "https://dashboard-fefr.onrender.com/spotify/me",
+          {
+            params: { access_token: accessToken },
+          }
+        );
         console.log("User Data:", response.data);
         this.user = response.data;
       } catch (error) {

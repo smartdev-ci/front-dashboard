@@ -17,7 +17,7 @@ export default createStore({
   },
   actions: {
     async fetchUsers({ commit }) {
-      const response = await fetch("http://localhost:3000/users/");
+      const response = await fetch("https://dashboard-fefr.onrender.com/users/");
       const data = await response.json();
       console.log(data);
       commit("SETS_USER", data);
@@ -25,7 +25,7 @@ export default createStore({
 
     async createUser({ commit }, { userData }) {
       try {
-        const response = await fetch("http://localhost:3000/users/", {
+        const response = await fetch("https://dashboard-fefr.onrender.com/users/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

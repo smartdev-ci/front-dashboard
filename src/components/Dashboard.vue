@@ -52,7 +52,7 @@ export default {
     async fetchInactiveWidgets() {
       try {
         const response = await axios.get(
-          `http://localhost:3000/widget/inactive/${this.userId}`
+          `https://dashboard-fefr.onrender.com/widget/inactive/${this.userId}`
         );
         this.widgets = response.data;
       } catch (error) {
@@ -61,10 +61,13 @@ export default {
     },
     async activateWidget(widgetId) {
       try {
-        await axios.post(`http://localhost:3000/widget/activate`, {
-          userId: this.userId,
-          widgetId: widgetId,
-        });
+        await axios.post(
+          `https://dashboard-fefr.onrender.com/widget/activate`,
+          {
+            userId: this.userId,
+            widgetId: widgetId,
+          }
+        );
         this.fetchInactiveWidgets(); // Refresh the widget list after activation
       } catch (error) {
         console.error("Error activating widget:", error);
